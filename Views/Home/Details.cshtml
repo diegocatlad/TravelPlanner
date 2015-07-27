@@ -1,0 +1,38 @@
+﻿@model TimezonesManager.DAL.Timezone
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<p class="error">@ViewBag.ErrorMessage</p>
+
+<fieldset>
+    <legend>Zone</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CityName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CityName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DifGMT)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DifGMT)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

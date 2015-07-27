@@ -1,0 +1,41 @@
+﻿@model TimezonesManager.DAL.Timezone
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+<p class="error">@ViewBag.ErrorMessage</p>
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CityName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CityName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DifGMT)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DifGMT)
+        </dd>
+    </dl>
+</fieldset>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" />
+        |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

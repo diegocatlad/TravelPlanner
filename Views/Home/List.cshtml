@@ -1,0 +1,25 @@
+﻿@model IEnumerable<TimezonesManager.DAL.Timezone>
+
+<h1>Timezones</h1>
+<p class="error">@ViewBag.ErrorMessage</p>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<p>
+    Find by name: @Html.TextBox("TimezoneName")
+    <input id="btnFilter" type="button" value="Filter" />
+</p>
+<div id="divTimezonesList">
+    @{Html.RenderPartial("TimezonesList", Model);}
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnFilter").click(
+            function () {
+                $("#divTimezonesList").load('@(Url.Action("FilterList", "Home", null, Request.Url.Scheme))?TimezoneName=' + $("#TimezoneName").val());
+            });
+    });
+</script>

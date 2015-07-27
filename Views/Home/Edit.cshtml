@@ -1,0 +1,44 @@
+﻿@model TimezonesManager.DAL.Timezone
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post, new { id = "frmEditTimezones" }))
+{
+
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CityName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CityName)
+            @Html.ValidationMessageFor(model => model.CityName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DifGMT)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DifGMT)
+            @Html.ValidationMessageFor(model => model.DifGMT)
+        </div>
+        <p>
+            <input type="button" value="Save" id="btnSaveEdit" />
+            &nbsp;&nbsp;<input type="button" value="Cancel" id="btncancel" />
+        </p>
+    </fieldset>
+}
